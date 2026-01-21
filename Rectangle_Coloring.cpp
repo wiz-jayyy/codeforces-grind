@@ -19,12 +19,12 @@ void solve(){
     maxi=max({r,g,b});
     mid=(r+g+b)-(mini+maxi);
    
-    if((l+b)==maxi && mid==l && mini==b){
+    if(((l+b)==maxi && mid==l && mini==b) || (maxi==l+l && mini==w)){
       cout<<4<<endl;
-    }else if((maxi==(l+w) && mid!=l) || (maxi>l+w && mini==w)){
-      cout<<5<<endl;
-    }else{
+    }else if((maxi>l+l+w || maxi>l+w+w) || (maxi>l+w && maxi<l+l+w && maxi!=l+w+w && mini!=w)){
       cout<<6<<endl;
+    }else{
+      cout<<5<<endl;
     }
    
 

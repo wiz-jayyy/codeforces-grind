@@ -13,30 +13,37 @@ using namespace std;
 
 
 void solve(){
-   ll l,w,r,g,b,mini,maxi,mid,ans=0;
-   cin>>l>>w>>r>>g>>b;
-    mini=min({r,g,b});
-    maxi=max({r,g,b});
-    mid=(r+g+b)-(mini+maxi);
-   
-    if((l+b)==maxi && mid==l && mini==b){
-      cout<<4<<endl;
-    }else if((maxi==(l+w) && mid!=l) || (maxi>l+w && mini==w)){
-      cout<<5<<endl;
-    }else{
-      cout<<6<<endl;
-    }
-   
+        
+   ll x,maxi,freq=-1;
+   cin>>x;
+   vll arr(x);
+   f(i,0,x){
+    cin>>arr[i];
+   }
+   map<ll,ll> m;
+   f(i,0,x){
+    m[arr[i]]++;
+   }
+   for(auto i:m){
+        if(i.second>freq){
+            freq=i.second;
+            maxi=i.first;
+        }else if(i.second=freq){
+            maxi=min(maxi,i.first);
+        }
+   }
+   cout<<maxi<<endl;
 
+        
+   
 }
-
 
 int main(){
   ios::sync_with_stdio(0);
   cin.tie(0);
-  ll t = 1;
-  cin >> t;
-  while (t--){
+  ll t=1;
+  cin>>t;
+  while(t--){
     solve();
   }
 }

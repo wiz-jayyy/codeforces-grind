@@ -10,23 +10,29 @@ using namespace std;
 #define rf(i, x, y) for (ll i = x - 1; i >= y; i--)
 #define endl '\n'
 
-
+long long fact(ll x)
+{
+  ll f = 1;
+  for (ll i = x; i >= 1; i--)
+  {
+    f = f * i;
+  }
+  return f;
+}
 
 void solve(){
-   ll l,w,r,g,b,mini,maxi,mid,ans=0;
-   cin>>l>>w>>r>>g>>b;
-    mini=min({r,g,b});
-    maxi=max({r,g,b});
-    mid=(r+g+b)-(mini+maxi);
-   
-    if((l+b)==maxi && mid==l && mini==b){
-      cout<<4<<endl;
-    }else if((maxi==(l+w) && mid!=l) || (maxi>l+w && mini==w)){
-      cout<<5<<endl;
-    }else{
-      cout<<6<<endl;
+    ll x,maxi=0,mini=INT_MAX;
+    cin>>x;
+    vll arr(x);
+    f(i,0,x){
+        cin>>arr[i];
     }
-   
+    f(i,0,x-1){
+        maxi=max(arr[i],arr[i+1]);
+        mini=min(mini,maxi);
+        maxi=0;
+    }
+    cout<<mini<<endl;
 
 }
 

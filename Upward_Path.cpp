@@ -13,19 +13,7 @@ using namespace std;
 
 
 void solve(){
-   ll l,w,r,g,b,mini,maxi,mid,ans=0;
-   cin>>l>>w>>r>>g>>b;
-    mini=min({r,g,b});
-    maxi=max({r,g,b});
-    mid=(r+g+b)-(mini+maxi);
-   
-    if((l+b)==maxi && mid==l && mini==b){
-      cout<<4<<endl;
-    }else if((maxi==(l+w) && mid!=l) || (maxi>l+w && mini==w)){
-      cout<<5<<endl;
-    }else{
-      cout<<6<<endl;
-    }
+    
    
 
 }
@@ -34,9 +22,9 @@ void solve(){
 int main(){
   ios::sync_with_stdio(0);
   cin.tie(0);
-  ll t = 1;
-  cin >> t;
-  while (t--){
+  ll t=1;
+  cin>>t;
+  while(t--){
     solve();
   }
 }
