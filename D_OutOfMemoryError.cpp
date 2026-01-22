@@ -14,28 +14,28 @@ using namespace std;
 
 void solve(){
         
-     ll x,maxi=INT_MIN,ans=0;
-     cin>>x;
-     vll arr(x);
-     f(i,0,x){
+    ll n,m,h;
+    cin>>n>>m>>h;
+    vll arr(n);
+    f(i,0,n){
         cin>>arr[i];
-     }
-     sort(arr.begin(),arr.end());
-       f(i,0,x-1){
-        if(arr[i+1]-arr[i]==1){
-            ans++;
-            maxi=max(maxi,ans);
-        }else if(arr[i+1]-arr[i]>1){
-            maxi=max(maxi,ans);
-            ans=0;
-        }
-       }
-       if(maxi==INT_MIN){
-          cout<<1<<endl;
+    }
+    vector<pair<ll,ll>> vec(m);
+    f(i,0,m){
+        cin>>vec[i].first>>vec[i].second;
+    }
+    vll brr=arr;
+    f(i,0,m){
+       if( arr[vec[i].first-1]+vec[i].second<=h){
+          arr[vec[i].first-1]+=vec[i].second;
        }else{
-           cout<<maxi+1<<endl;
-       }
-        
+           arr=brr;
+       }     
+    }
+        f(i,0,n){
+            cout<<arr[i]<<" ";
+        }
+        cout<<endl;
    
 }
 
