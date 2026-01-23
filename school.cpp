@@ -14,7 +14,15 @@ using namespace std;
 
 void solve(){
     
-   
+   ll ans=0;
+   string s;
+   getline(cin,s);
+   f(i,0,s.length()){
+      if(s[i]==' '){
+         ans++;
+      }
+   }
+   cout<<ans<<endl;
 
 }
 

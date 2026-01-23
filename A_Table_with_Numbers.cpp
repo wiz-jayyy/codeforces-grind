@@ -14,6 +14,28 @@ using namespace std;
 
 void solve(){
     
+    ll n,h,l,lm=0,ls=0;
+    cin>>n>>h>>l;
+    vll arr(n);
+    f(i,0,n){
+        cin>>arr[i];
+    }
+    f(i,0,n){
+        if(arr[i]<=min(h,l)){
+            ls++;
+        }else if(arr[i]<=max(h,l)){
+            lm++;
+        }
+    }
+    
+      if(ls>=lm){
+          cout<<(ls+lm)/2<<endl;
+      }else{
+        cout<<ls<<endl;
+      }
+    
+    
+
    
 
 }

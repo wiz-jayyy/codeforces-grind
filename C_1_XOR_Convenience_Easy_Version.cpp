@@ -13,7 +13,11 @@ using namespace std;
 
 
 void solve(){
+    ll x=
+   cout<<x;
     
+    
+
    
 
 }
