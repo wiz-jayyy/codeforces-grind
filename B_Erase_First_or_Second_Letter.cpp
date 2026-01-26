@@ -13,24 +13,19 @@ using namespace std;
 
 
 void solve(){
-    
+ 
     ll x;
     cin>>x;
+    string s;
+    cin>>s;
     vll arr(x);
-    arr[x-1]=1;
-    f(i,1,x-1){
-      arr[i]=(i+1)^1;
-    }
-    if(x%2==0){
-      arr[0]=x;
-    }else{
-      arr[0]=x-1;
-    }
+    map<char,ll> m;
     f(i,0,x){
-      cout<<arr[i]<<" ";
+       m[s[i]]++;
+       arr.push_back(m.size());
     }
-    cout<<endl;
-
+    ll ans=accumulate(arr.begin(),arr.end(),0);
+     cout<<ans<<endl;
 }
 
 

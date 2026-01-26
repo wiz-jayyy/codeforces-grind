@@ -13,64 +13,34 @@ using namespace std;
 
 
 void solve(){
-   ll x,y,ans=0,maxi=INT_MIN,l,d,n;
-   cin>>x>>y;
-   vll arr(x);
-   bool stat=true;
-   while(x--){
-    ll a,b,c;
-    cin>>a>>b>>c;
-    if(maxi<a*b-c){
-        maxi=a*b-c;
-        l=c;
-        d=a;
-        n=b;
-    }
-   }
-    if(maxi<=0){
-        cout<<-1<<endl;
-    }else{
-     if(y>=maxi){
-    if(y%maxi==0){
-        ans+=y/maxi;
-        cout<<ans<<endl;
-    } else{
-       ans+=y/maxi;
-       y=y%maxi;
-       f(i,0,n-1){
-         y-=d;
-         if(y<=0){
-          bool stat=false;
-          break;
-         }
-       }
-       if(stat){
-        cout<<ans+1<<endl;
-       }else{
-        cout<<ans<<endl;
-       }
-    }
     
-    }else{
+    ll x,y,maxi=INT_MIN,p,q,r,ans;
+    cin>>x>>y;
+    while(x--){
+        ll a,b,c;
+        cin>>a>>b>>c;
+        if(maxi<a*b-c){
+          maxi=a*b-c;
+        }
+        if(a*(b-1)>0){
+            y-=a*(b-1);
+        }
+    }
+       if(y<=0){
         cout<<0<<endl;
-    }
-    
-    }
-    }
-   
-    
-    
-    
-    
-   
-    
-    
-
-   
-
-
-
-
+       }else if(maxi<=0)
+       {
+        cout<<-1<<endl;
+       }else{
+            if(y%maxi==0){
+        cout<<y/maxi<<endl;
+      }else{
+        cout<<(y/maxi)+1<<endl;
+      }
+       }
+       
+       }
+     
 int main(){
   ios::sync_with_stdio(0);
   cin.tie(0);
