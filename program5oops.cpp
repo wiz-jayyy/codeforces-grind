@@ -14,16 +14,13 @@ using namespace std;
 
 void solve(){
     
-   ll age;
-   ld attendance;
-   cout<<"ENTER AGE:"<<endl;
-   cin>>age;
-   cout<<"ENTER ATTENDANCE:"<<endl;
-   cin>>attendance;
-   if(age>=18 && attendance>=75){
-      cout<<"YOU ARE ELIGIBLE"<<endl;
-   }else{
-      cout<<"YOU ARE NOT ELIGIBLE"<<endl;
+   ll x=1;
+   while(x>0){
+    ll y;
+    cin>>y;
+    if(y>=0 && y<=100){
+        break;
+    }
    }
 
 }

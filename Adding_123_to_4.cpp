@@ -14,17 +14,32 @@ using namespace std;
 
 void solve(){
     
-   ll age;
-   ld attendance;
-   cout<<"ENTER AGE:"<<endl;
-   cin>>age;
-   cout<<"ENTER ATTENDANCE:"<<endl;
-   cin>>attendance;
-   if(age>=18 && attendance>=75){
-      cout<<"YOU ARE ELIGIBLE"<<endl;
+   ll x,y,z,ans=0;
+   cin>>x>>y>>z;
+   if(x>z){
+    ans+=z;
+    x-=4*z;
+    x=max(0ll,x);
    }else{
-      cout<<"YOU ARE NOT ELIGIBLE"<<endl;
+    ans+=x;
+    x=0;
    }
+   y=y*2;
+   if((y)%4==0){
+    ans+=y/4;
+    y=0;
+   }else{
+    ans+=y/4;
+    y=y%4;
+   }
+   if(x>=2 && y>=2){
+    ans++;
+    x-=2;
+   }
+   if(x>=4){
+    ans+=x/4;
+   }
+   cout<<ans<<endl;
 
 }
 
@@ -33,7 +48,7 @@ int main(){
   ios::sync_with_stdio(0);
   cin.tie(0);
   ll t = 1;
- // cin >> t;
+  cin >> t;
   while (t--){
     solve();
   }

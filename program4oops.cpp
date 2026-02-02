@@ -1,4 +1,4 @@
-#include <bits/stdc++.h>
+ #include <bits/stdc++.h>
 using namespace std;
 
 #define ll long long
@@ -14,16 +14,13 @@ using namespace std;
 
 void solve(){
     
-   ll age;
-   ld attendance;
-   cout<<"ENTER AGE:"<<endl;
-   cin>>age;
-   cout<<"ENTER ATTENDANCE:"<<endl;
-   cin>>attendance;
-   if(age>=18 && attendance>=75){
-      cout<<"YOU ARE ELIGIBLE"<<endl;
-   }else{
-      cout<<"YOU ARE NOT ELIGIBLE"<<endl;
+   ll x;
+   cin>>x;
+   f(i,1,x+1){
+     f(j,0,i){
+        cout<<i;
+     }
+     cout<<endl;
    }
 
 }

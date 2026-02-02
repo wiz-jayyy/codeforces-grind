@@ -13,19 +13,20 @@ using namespace std;
 
 
 void solve(){
-    
-   ll age;
-   ld attendance;
-   cout<<"ENTER AGE:"<<endl;
-   cin>>age;
-   cout<<"ENTER ATTENDANCE:"<<endl;
-   cin>>attendance;
-   if(age>=18 && attendance>=75){
-      cout<<"YOU ARE ELIGIBLE"<<endl;
-   }else{
-      cout<<"YOU ARE NOT ELIGIBLE"<<endl;
-   }
-
+ 
+  ll x,y;
+  cin>>x>>y;
+  if(x%y==0){
+    cout<<0<<endl;
+  }else{
+    if(x<y){
+        cout<<abs(x-y)<<endl;
+    }else{
+        cout<<(y*((x/y)+1))-x<<endl;
+    }
+  }
+ 
+   
 }
 
 
@@ -33,7 +34,7 @@ int main(){
   ios::sync_with_stdio(0);
   cin.tie(0);
   ll t = 1;
- // cin >> t;
+  cin >> t;
   while (t--){
     solve();
   }
