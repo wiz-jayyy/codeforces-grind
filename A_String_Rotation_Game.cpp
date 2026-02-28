@@ -42,21 +42,33 @@ void solve() {
     ll maxi = 0x8000000000000000L, mini = 0x7fffffffffffffffL;
     ll x;
     cin>>x;
-    bool stat=false;
-    f(i,1,10001){
-        ll y=cbrt(x-(i*i*i));
-        if((x-i*i*i)/(y*y*y)==1 ){
-            stat=true;
-            break;
-        }else if(x-(i*i*i)<0){
-            break;
+    string s;
+    cin>>s;
+    ll ans=0;
+    map<char,ll> m; 
+    f(i,0,x){
+        m[s[i]]++;
+    }
+    f(i,0,s.length()){
+        if(i==0){
+            ans++;
+        }else{
+            if(s[i]!=s[i-1]){
+                ans++;
+            }
         }
     } 
-    if(stat){
-        cout<<"YES"<<endl;
+    if(ans==x){
+        cout<<x<<endl;
     }else{
-        cout<<"NO"<<endl;
+        if(s[0]==s[x-1]){
+      
+    }else{
+       ans++;
     }
+     cout<<ans<<endl;
+    }
+    
 }
 
 int main() {

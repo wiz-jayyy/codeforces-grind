@@ -40,22 +40,24 @@ ll power(ll x, ll n) {
 
 void solve() {
     ll maxi = 0x8000000000000000L, mini = 0x7fffffffffffffffL;
-    ll x;
-    cin>>x;
-    bool stat=false;
-    f(i,1,10001){
-        ll y=cbrt(x-(i*i*i));
-        if((x-i*i*i)/(y*y*y)==1 ){
-            stat=true;
-            break;
-        }else if(x-(i*i*i)<0){
-            break;
+    ll n,m,d;
+    cin>>n>>m>>d;
+    if(d<m){
+        cout<<n<<endl;
+    } else if(d==m){
+        if(n%2==0){
+            cout<<n/2<<endl;
+        }else{
+            cout<<(n/2)+1<<endl;
         }
-    } 
-    if(stat){
-        cout<<"YES"<<endl;
     }else{
-        cout<<"NO"<<endl;
+        ll x=d/m;
+        x++;
+        if(n%x==0){
+            cout<<n/x<<endl;
+        }else{
+            cout<<(n/x)+1<<endl;
+        }
     }
 }
 

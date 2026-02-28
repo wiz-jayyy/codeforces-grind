@@ -40,23 +40,55 @@ ll power(ll x, ll n) {
 
 void solve() {
     ll maxi = 0x8000000000000000L, mini = 0x7fffffffffffffffL;
-    ll x;
-    cin>>x;
-    bool stat=false;
-    f(i,1,10001){
-        ll y=cbrt(x-(i*i*i));
-        if((x-i*i*i)/(y*y*y)==1 ){
-            stat=true;
-            break;
-        }else if(x-(i*i*i)<0){
-            break;
-        }
+    ll x,h,k,add=0;
+    cin>>x>>h>>k;
+    vll arr(x);
+    f(i,0,x){
+        cin>>arr[i];
+        add+=arr[i];
     } 
-    if(stat){
-        cout<<"YES"<<endl;
-    }else{
-        cout<<"NO"<<endl;
+    vll sufmax(x),prefmin(x);
+    prefmin[0]=arr[0];
+    mini=arr[0];
+    f(i,0,x){
+       if(arr[i]<mini){
+        prefmin[i]=arr[i];
+        mini=arr[i];
+       }else{
+        prefmin[i]=mini;
+       }
     }
+    sufmax[x-1]=arr[x-1];
+    maxi=arr[x-1];
+    for(ll i=x-1; i>=0; i--){
+        if(arr[i]>maxi){
+            sufmax[i]=arr[i];
+            maxi=arr[i];
+        }else{
+            sufmax[i]=maxi;
+        }
+    }
+    ll y=h/add;
+    ll ans;
+    if(h%add==0){     
+      ans=(y*x)+max(0ll,(y-1)*(k));
+    }else{
+        ans=(y*x)+y*k;
+    }
+     h%=add;
+    ll count=0,jod=0,le=0;
+    if(h>0){
+         f(i,0,x-1){
+       jod+=arr[i];
+       count++;
+       ll le=jod-prefmin[i]+sufmax[i+1];
+       if(jod>=h || le>=h){
+        break;
+       }
+    }
+    }
+   
+    cout<<ans+count<<endl;
 }
 
 int main() {

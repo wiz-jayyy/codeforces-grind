@@ -38,25 +38,51 @@ ll power(ll x, ll n) {
     return pow;
 }
 
+ll resum(ll x){
+   ll sum=0;
+    while(x>0){
+         sum+=(x%10);
+         x/=10;
+    }
+    return sum;
+}
+
 void solve() {
     ll maxi = 0x8000000000000000L, mini = 0x7fffffffffffffffL;
-    ll x;
-    cin>>x;
-    bool stat=false;
-    f(i,1,10001){
-        ll y=cbrt(x-(i*i*i));
-        if((x-i*i*i)/(y*y*y)==1 ){
-            stat=true;
-            break;
-        }else if(x-(i*i*i)<0){
-            break;
-        }
-    } 
-    if(stat){
-        cout<<"YES"<<endl;
-    }else{
-        cout<<"NO"<<endl;
+    string s;
+    cin>>s;
+    vll arr(10,0);
+    f(i,0,s.length()){
+        arr[s[i]-'0']++;
     }
+    ll sum=0;
+    f(i,0,10){
+        if(arr[i]>0){
+            sum+=i*arr[i];
+        }
+    }
+   if(resum(sum)==sum){
+    cout<<0<<endl;
+   }else{
+      vll brr;
+      f(i,0,s.length()){
+        ll x;
+        if(i==0){
+          x=s[i]-'1';
+        }else{
+          x=s[i]-'0';
+        }
+        brr.pb(x);
+      }
+      sort(brr.rbegin(),brr.rend());
+      f(i,0,brr.size()){
+          sum-=brr[i];
+          if(sum<10){
+            cout<<i+1<<endl;
+            break;
+          }
+      }
+   }
 }
 
 int main() {

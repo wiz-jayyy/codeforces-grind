@@ -42,21 +42,26 @@ void solve() {
     ll maxi = 0x8000000000000000L, mini = 0x7fffffffffffffffL;
     ll x;
     cin>>x;
-    bool stat=false;
-    f(i,1,10001){
-        ll y=cbrt(x-(i*i*i));
-        if((x-i*i*i)/(y*y*y)==1 ){
-            stat=true;
-            break;
-        }else if(x-(i*i*i)<0){
-            break;
-        }
-    } 
-    if(stat){
-        cout<<"YES"<<endl;
-    }else{
-        cout<<"NO"<<endl;
+    vector<pair<ll,ll>> arr(x),brr(x),crr(x);
+    f(i,0,x){
+        cin>>arr[i].first;
+        arr[i].second=i;
     }
+    f(i,0,x){
+        cin>>brr[i].first;
+        brr[i].second=i;
+    }
+    f(i,0,x){
+        cin>>crr[i].first;
+        crr[i].second=i;
+    }
+    sort(arr.rbegin(),arr.rend());
+    sort(brr.rbegin(),brr.rend());
+    sort(crr.rbegin(),crr.rend());
+    ll sum=arr[0].first + brr[0].first + crr[0].first;
+    f(i,0,3){
+        
+    } 
 }
 
 int main() {

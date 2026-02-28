@@ -40,22 +40,34 @@ ll power(ll x, ll n) {
 
 void solve() {
     ll maxi = 0x8000000000000000L, mini = 0x7fffffffffffffffL;
-    ll x;
-    cin>>x;
-    bool stat=false;
-    f(i,1,10001){
-        ll y=cbrt(x-(i*i*i));
-        if((x-i*i*i)/(y*y*y)==1 ){
-            stat=true;
-            break;
-        }else if(x-(i*i*i)<0){
-            break;
+    ll n,m,a,b;
+    cin>>n>>m>>a>>b;
+    if(m>n){
+        if(a*n<=b){
+            cout<<a*n<<endl;
+        }else{
+            cout<<b<<endl;
         }
-    } 
-    if(stat){
-        cout<<"YES"<<endl;
     }else{
-        cout<<"NO"<<endl;
+       if(n%m==0){
+         if(a*m<=b){
+            cout<<a*n<<endl;
+         }else{
+            cout<<(n/m)*b<<endl;
+         }
+       }else{
+        if(a*m<=b){
+            cout<<a*n<<endl;
+        }else{
+            ll ans=(n/m)*b;
+            n-=(n/m)*m;
+            if(n*a<=b){
+                cout<<ans+(n*a)<<endl;
+            }else{
+                cout<<ans+b<<endl;
+            }
+        }
+       }
     }
 }
 
@@ -63,7 +75,7 @@ int main() {
     ios_base::sync_with_stdio(0);
     cin.tie(0); cout.tie(0);
     ll testcase = 1;
-    cin >> testcase;
+   // cin >> testcase;
     while (testcase--) solve();
     return 0;
 }

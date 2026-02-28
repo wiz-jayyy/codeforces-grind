@@ -37,26 +37,42 @@ ll power(ll x, ll n) {
     }
     return pow;
 }
+vector<ll> getPrimeFactors(ll n) {
+    vector<ll> factors;
+    
+    if (n % 2 == 0) {
+        factors.push_back(2);
+        while (n % 2 == 0) n /= 2;
+    }
+    
+    for (ll i = 3; i <= sqrt(n); i += 2) {
+        if (n % i == 0) {
+            factors.push_back(i);
+            while (n % i == 0) n /= i;
+        }
+    }
+    
+    if (n > 1) factors.push_back(n);
+    return factors;
+}
+
+
+long long findLCM(const vector<ll>& nums) {
+    if (nums.empty()) return 1;
+    long long lcm = 1;
+    for (ll num : nums) {
+        lcm = (lcm * num) / __gcd(lcm, (long long)num);
+    }
+    return lcm;
+}
 
 void solve() {
     ll maxi = 0x8000000000000000L, mini = 0x7fffffffffffffffL;
     ll x;
     cin>>x;
-    bool stat=false;
-    f(i,1,10001){
-        ll y=cbrt(x-(i*i*i));
-        if((x-i*i*i)/(y*y*y)==1 ){
-            stat=true;
-            break;
-        }else if(x-(i*i*i)<0){
-            break;
-        }
-    } 
-    if(stat){
-        cout<<"YES"<<endl;
-    }else{
-        cout<<"NO"<<endl;
-    }
+    vll arr=getPrimeFactors(x);
+    ll lcms = findLCM(arr);
+    cout<<lcms<<endl;
 }
 
 int main() {
